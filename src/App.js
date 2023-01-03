@@ -6,10 +6,9 @@ import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
 
 
-
 function App (){
     
-    const [feedback,setFeedback] = useState(FeedbackData) 
+    const [feedback,setFeedback] = useState(FeedbackData) // state imizi FeedbackDatadan yolladiks
     
     const deleteFeedback= (id) => {
         if(window.confirm('Are you sure ? ')){
@@ -25,15 +24,13 @@ function App (){
             <Header />
             <div className='container'>
                 <FeedbackForm/>
-                <FeedbackStats feedback = {feedback} />
+                <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback}
-                handleDelete={deleteFeedback}/> 
+                handleDelete={deleteFeedback}/> {/* useState blogunda adini feedback verdik ve burda erismek icin FeedbacListten bunu alabilmeliyiz. Bu yuzden buraya feedback={feedback} bunu yazdik.*/}
             </div>
         </>
        
     )
 }
-
-
 
 export default App

@@ -1,32 +1,25 @@
-import { useState } from "react"
-import Card from "./shared/Card"
-import Button from "./shared/Button"
-
-function FeedbackForm() {
-    const [text,setText] = useState('')
-
-    const handleTextChange = (e) => {
-        setText(e.target.value)
-    }
+import PropTypes from 'prop-types'
 
 
-    
-    return (
-        <Card>
-            <form >
-                <h2>How would you rate your service with us ? </h2>
-
-                <div className="input-group">
-                    <input 
-                    onChange={handleTextChange}
-                    type="text" 
-                    placeholder="Write a review" 
-                    value={text}/>
-                    <Button type="submit">Send</Button>
-                </div>
-            </form>
-        </Card>
-    )
+function Button({children,version,type,isDisabled}) {
+  return (
+    <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
+        {children}
+    </button>
+  )
 }
 
-export default FeedbackForm
+Button.defaultProps = {
+    version : 'primary',
+    type : 'button',
+    isDisabled : false
+}
+
+Button.propTypes ={
+    children : PropTypes.node.isRequired,
+    version: PropTypes.string,
+    type : PropTypes.string,
+    isDisabled: PropTypes.bool
+}
+
+export default Button
