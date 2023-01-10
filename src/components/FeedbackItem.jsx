@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import FeedbackContext from '../context/FeedbackContext'
 
 
-function FeedbackItem({item,}) { 
+function FeedbackItem({item}) { 
   
   const {deleteFeedback, editFeddback} = useContext(FeedbackContext) 
   

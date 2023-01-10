@@ -16,16 +16,15 @@ function FeedbackForm() {
         if(feedbackEdit.edit === true){
             setBtnDisabled(false)
             setText(feedbackEdit.item.text)
-            
             setRating(feedbackEdit.item.rating)
         }
     },[feedbackEdit])
     
-    const handleTextChange = (e) => {
-        if(text === ""){
+    const handleTextChange = ({target :{value}}) => {
+        if(value === ""){
             setBtnDisabled(true)
             setMessage(null)
-        } else if (text !== "" && text.trim().length<= 10 ){
+        } else if (value.trim().length<= 10 ){
             setMessage('Text must be at least 10 characters')
             setBtnDisabled(true)
         }else{
@@ -33,7 +32,7 @@ function FeedbackForm() {
             setBtnDisabled(false)
         }
 
-        setText(e.target.value)
+        setText(value)
     }
 
     const handleSubmit = (e) => {
@@ -50,9 +49,9 @@ function FeedbackForm() {
             }else {
                 addFeedback(newFeedback)
             }
-           
-
-            setText("")
+           setBtnDisabled(true)
+           setRating(10)
+           setText("")
         }
     }
     
