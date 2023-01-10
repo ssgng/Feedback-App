@@ -15,8 +15,6 @@ function RatingSelect({select}) {
       setSelected(+e.currentTarget.value)
       select(+e.currentTarget.value)
     }
-  
-   
     return (
       <ul className='rating'>
         {Array.from({ length: 10 }, (_, i) => (

@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
+import RatingSelect from "./RatingSelect"
 import Card from "./shared/Card"
 import Button from "./shared/Button"
-import RatingSelect from "./RatingSelect"
 import FeedbackContext from "../context/FeedbackContext"
 
 function FeedbackForm() {
@@ -24,7 +24,7 @@ function FeedbackForm() {
         if(value === ""){
             setBtnDisabled(true)
             setMessage(null)
-        } else if (value.trim().length<= 10 ){
+        } else if (value.trim().length< 10 ){
             setMessage('Text must be at least 10 characters')
             setBtnDisabled(true)
         }else{
@@ -40,7 +40,7 @@ function FeedbackForm() {
         if(text.trim().length>10){
             const newFeedback ={
                 text,
-                rating
+                rating,
             }
 
             if(feedbackEdit.edit ===true) {
